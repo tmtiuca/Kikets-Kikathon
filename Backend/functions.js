@@ -1,5 +1,9 @@
 var mongoose = require('mongoose'),
+	db = mongoose.connection,
 	User = require('./userSchema.js');
+
+db.on('error', console.error);
+db.once('open', function() {
 
 module.exports.IsFriend = function(req, res){
 	User.findOne({'username': req.body.username}, function(err, user){
@@ -11,7 +15,7 @@ module.exports.IsFriend = function(req, res){
 		}
 		return false;
 	});
-}
+};
 
 var CreateUser = function(req, res){
 	var newUser = new User({
@@ -32,3 +36,8 @@ var CreateUser = function(req, res){
 	res.status(200);
 	res.send();
 };
+
+
+});
+
+mongoose.connect('mongodb://localhost/test/100');

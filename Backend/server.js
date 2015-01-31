@@ -10,18 +10,9 @@ bodyParser.urlencoded();
 
 app.post('/user', function (req, res) {
   // create user
-  res.status(203);
-  res.send('hello');
 });
 app.get('/user/info', function (req, res) {
   // gets user info
-  var test = {
-  	'1': 'hello',
-  	'2': 'hello',
-  	'3': 'hello',
-  	'4': 'hello'
-  };
-  res.json(test);
 });
 
 app.post('/addFriend', function (req, res) {
