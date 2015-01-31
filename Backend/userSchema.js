@@ -5,10 +5,12 @@ var Schema = mongoose.Schema;
 
 // define the userSchema
 var userSchema = new Schema({
- name  : {
-   givenName   : String,
-   familyName  : String
- }
+  username:  String,
+  password: String,
+  full_name:   String,
+  friends: [],
+  user_tickets: [],
+  assigned_tickets: [],	
 });
 
 // Export the User model
