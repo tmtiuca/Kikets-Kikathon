@@ -1,4 +1,4 @@
-var apiUri = 'http://localhost:3000';
+var apiUri = 'http://104.236.221.213:3000';
 
 angular.module('Kikets', [])
 
