@@ -1,0 +1,17 @@
+.buttons{
+	padding-top: 25px;
+	font-size: 110%;
+}
+
+.page{
+	background-color: #E3F2FD;
+	height: 100%;
+  	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
+  	padding-left: 150;
+  	position: fixed;
+  	top: 0;
+  	width: 100%;
+}
