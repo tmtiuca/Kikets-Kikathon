@@ -17,6 +17,9 @@ app.use(bodyParser.json())
 app.post('/user', function (req, res) {
   	functions.createUser(req, res);
 });
+app.post('/login', function (req, res) {
+    functions.checkLogin(req, res);
+});
 app.get('/user/:username', function (req, res) {
   	functions.findUser(req, res);
 });

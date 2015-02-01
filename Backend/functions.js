@@ -34,6 +34,24 @@ var createUser = function(req, res){
 			res.json(user);
 			return true;
 		});
+	},
+	checkLogin = function(req, res){
+		models.User.findOne({'username': req.body.username}, function(err, user){
+			if (err) {
+				console.log(err);
+				res.status(400);
+				res.send();
+				return false;
+			};
+			if (user.password === req.body.password) {
+				res.status(200);
+				res.send();
+			} else {
+				res.status(400);
+				res.send();
+			}
+			return true;
+		});
 	},	
 	createTicket = function(req, res){
 		var date = new Date(),
@@ -157,6 +175,7 @@ var createUser = function(req, res){
 
 module.exports = {
 	createUser:createUser,
+	checkLogin:checkLogin,
 	findUser:findUser,
 	createTicket:createTicket,
 	updateStatus:updateStatus,

@@ -23,11 +23,11 @@
 				<h3 class="text-center">Welcome to Kikets</h3>
 				<div class="form-group">
 	    			<label for="InputEmail1">Email address</label>
-	    			<input type="email" class="form-control" id="InputEmail1" placeholder="Enter email">
+	    			<input type="email" class="form-control" id="InputEmail1" placeholder="Enter email" ng-model="username">
 	  			</div>
 	  			<div class="form-group">
 	    			<label for="InputPassword1">Password</label>
-	    			<input type="password" class="form-control" id="InputPassword1" placeholder="Password">
+	    			<input type="password" class="form-control" id="InputPassword1" placeholder="Password" ng-model="password">
 	  			</div>
 
 	  			<!--<div ng-bind="name"></div>
@@ -60,15 +60,15 @@
 				<h3 class="text-center">Signup</h3>
 				<div class="form-group">
 	    			<label for="InputEmail1">Email address</label>
-	    			<input type="email" class="form-control" id="InputEmail1" placeholder="Enter email">
+	    			<input type="email" class="form-control" id="InputEmail1" placeholder="Enter email" ng-model="username">
 	  			</div>
 	  			<div class="form-group">
 	    			<label for="InputFullName">Full name</label>
-	    			<input type="text" class="form-control" id="InputFullName" placeholder="Enter full name">
+	    			<input type="text" class="form-control" id="InputFullName" placeholder="Enter full name" ng-model="fullName">
 	  			</div>
 	  			<div class="form-group">
 	    			<label for="InputPassword1">Password</label>
-	    			<input type="password" class="form-control" id="InputPassword1" placeholder="Password">
+	    			<input type="password" class="form-control" id="InputPassword1" placeholder="Password" ng-model="password">
 	  			</div>
 	  		</div>
 		</div>
@@ -114,14 +114,34 @@
 		<div class="row">
 
 			<div class="col-lg-6">
-				<h2 class="mytickets text-center">My Tickets</h2>
+				<h2 class="mytickets text-center">My Kikets</h2>
+				<br>
+				<div class="row">
+					<div ng-repeat="ticket in user.tickets" class="col-xs-4 ticket">
+					    <h2 ng-bind="ticket.title"></h2>
+					    <p ng-bind="ticket.content"></p>
+					    <p class="subInfo">~{{ticket.creation_user}}~</p>
+					    <p class="subInfo">~{{ticket.creation_date}}~</p>
+					    <button ng-click="updateTicket({{ticket.title}})">Done</button>
+					</div>
+				</div>
 			</div>
 
 			<div class="col-lg-6">
-				<h2 class="senttickets text-center">Sent Tickets</h2>
+				<h2 class="senttickets text-center">Sent Kikets</h2>
+				<br>
+				<div class="row">
+					<div ng-repeat="ticket in user.sent_tickets" class="col-xs-4 ticket.status">
+					    <h2 ng-bind="ticket.title"></h2>
+					    <p ng-bind="ticket.content"></p>
+					    <p class="subInfo">~{{ticket.assigned_user}}~</p>
+					    <p class="subInfo">~{{ticket.creation_date}}~</p>
+					</div>
+				</div>
 			</div>
 
 		</div>
+		
 
 	</div>
 
@@ -139,7 +159,7 @@
 
 				<div class="col-lg-6 col-lg-offset-3 form-group">
 					<label for="friendemail">Email Address</label>
-						<input type="email" class="form-control" id="friendemail" placeholder="Enter friend's email">
+						<input type="email" class="form-control" id="friendemail" placeholder="Enter friend's email" ng-model="friend">
 				</div>
 
 			</div>
@@ -172,7 +192,18 @@
 				<div class="col-lg-6 col-lg-offset-3 form-group">
 					<label for="friendemail">Send KiKet to</label>
 					
-						<input type="email" class="form-control" id="friendemail" placeholder="Enter friend's email">
+						<input type="email" class="form-control" id="friendemail" placeholder="Enter friend's email" ng-model="friend">
+
+				</div>
+
+			</div>
+
+			<div class="row">
+
+				<div class="col-lg-6 col-lg-offset-3 form-group">
+					<label for="friendemail">KiKet Title</label>
+					
+						<input type="text" class="form-control" id="ticket" placeholder="title" ng-model="title">
 
 				</div>
 
@@ -182,7 +213,7 @@
 
 				<div class="col-lg-6 col-lg-offset-3 form-group">
 					<label for="ticket">What is your KiKet?</label>
-						<input type="text" class="form-control" id="ticket" placeholder="Enter your task here">
+					<textarea type="text" class="form-control" id="ticket" placeholder="Enter your task here" rows="3" ng-model="content"></textarea> 
 				</div>
 
 			</div>
