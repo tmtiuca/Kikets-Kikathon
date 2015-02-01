@@ -1,41 +1,43 @@
 var express = require('express'),
 	app = express(),
 	bodyParser = require('body-parser'),
-	cors = require('cors');
+	cors = require('cors'),
+	functions = require('./functions.js'),
+	mongoose = require('mongoose');
 
 app.use(cors());
-bodyParser.json();
-bodyParser.urlencoded();
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+
+// parse application/json
+app.use(bodyParser.json())
 
 
 app.post('/user', function (req, res) {
-  // create user
+  	functions.createUser(req, res);
 });
-app.get('/user/info', function (req, res) {
-  // gets user info
+app.get('/user/:username', function (req, res) {
+  	functions.findUser(req, res);
 });
 
 app.post('/addFriend', function (req, res) {
-  // add a friend
+  	functions.addFriend(req, res);
 });
 
-app.post('/ticket/make', function (req, res) {
-  // create a ticket
+app.post('/ticket/create', function (req, res) {
+  	functions.createTicket(req, res);
 });
-app.post('/ticket/done', function (req, res) {
-  // mark a ticket as done
+app.post('/ticket/update', function (req, res) {
+    functions.updateStatus(req, res);
 });
-app.post('/ticket/cancel', function (req, res) {
-  // mark a ticket as cancelled
-});
-
 
 
 var server = app.listen(3000, function () {
 
-  var host = server.address().address;
-  var port = server.address().port;
+  	var host = server.address().address;
+  	var port = server.address().port;
 
-  console.log('Example app listening at http://%s:%s', host, port);
+  	console.log('Example app listening at http://%s:%s', host, port);
 
 });
