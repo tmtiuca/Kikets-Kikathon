@@ -17,11 +17,13 @@ var createUser = function(req, res){
 				console.log(err);
 				res.status(401);
 				res.send();
+				return true;
 			}
 		});
 
 		res.status(200);
 		res.send('User Created');
+		return true;
 	},
 	findUser = function(req, res){
 		models.User.findOne({'username': req.params.username}, function(err, user){
@@ -46,9 +48,11 @@ var createUser = function(req, res){
 			if (user.password === req.body.password) {
 				res.status(200);
 				res.send();
+				return true;
 			} else {
 				res.status(400);
 				res.send();
+				return true;
 			}
 			return true;
 		});
@@ -78,6 +82,7 @@ var createUser = function(req, res){
 					console.log(err);
 					res.status(401);
 					res.send();
+					return true;
 				}
 			});
 			return true;
@@ -97,6 +102,7 @@ var createUser = function(req, res){
 					console.log(err);
 					res.status(401);
 					res.send();
+					return true;
 				}
 			});
 			return true;
@@ -104,6 +110,7 @@ var createUser = function(req, res){
 
 		res.status(200);
 		res.send('ticket created');
+		return true;
 	},
 	updateStatus = function(req, res){
 		models.User.findOne({'username': req.body.username}, function(err, user){
@@ -117,7 +124,7 @@ var createUser = function(req, res){
 							console.log(err);
 							res.status(401);
 							res.send();
-							return
+							return true;
 						}
 					});
 					models.User.findOne({'username': tempTicket.creation_user}, function(err, user2){
@@ -129,7 +136,7 @@ var createUser = function(req, res){
 										console.log(err);
 										res.status(401);
 										res.send();
-										return
+										return true;
 									}
 								});
 								user2.sent_tickets.push(tempTicket);
@@ -138,10 +145,11 @@ var createUser = function(req, res){
 										console.log(err);
 										res.status(401);
 										res.send();
-										return
+										return true;
 									}
 								});
-								res.send('updated');
+								res.send('update');
+								return true;
 							}
 						}
 					});
@@ -155,6 +163,7 @@ var createUser = function(req, res){
 				if (req.body.friend === user.friends[i]){	
 						res.status(401);
 						res.send();
+						return true;
 					}
 			}
 
@@ -165,11 +174,13 @@ var createUser = function(req, res){
 					console.log(err);
 					res.status(401);
 					res.send();
+					return true;
 				}
 			});
 						
 			res.status(200);
 			res.send('friend added');
+			return true;
 		});
 	};
 

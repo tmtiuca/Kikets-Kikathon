@@ -1,5 +1,4 @@
 var apiUri = 'http://104.236.221.213:3000';
-
 angular.module('Kikets', [])
 
 .controller('bodyCtrl',  ['$scope', '$http', function ($scope, $http) {
@@ -110,7 +109,7 @@ angular.module('Kikets', [])
           })
         .error(function(err) {
           console.log(err);
-        });  
+        }); 
     }
 
     $scope.updateTicket = function (ticketTitle) {

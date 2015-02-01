@@ -4,7 +4,7 @@
 }
 
 .page{
-	background-color: #E3F2FD;
+	background-color: #F5F5F5;
 	height: 100%;
   	-webkit-background-size: cover;
   	-moz-background-size: cover;
@@ -22,4 +22,51 @@
 	position: absolute;
 	top: -9999px;
 	left: -9999px;
+}
+
+.ticket
+{
+	margin: 10px;
+	overflow: auto;
+	background-color: #2196F3;
+	color: #FFFFFF;
+	height: 250px;
+	border-radius: 5px;
+	border-width: 0px;
+}
+
+.btn
+{
+	background-color: #558B2F;
+	color: #FFFFFF;
+	border-radius: 5px;
+	border-width: 0px;
+	margin: 10px;
+}
+.btn:hover
+{
+	background-color: #33691E;
+	color: #FFFFFF;
+}
+.notDone
+{
+	background-color: #78909C;
+	height: 250px;
+	overflow: auto;
+	color: #FFFFFF;
+	padding: 10px;
+	border-radius: 5px;
+	border-width: 0px;
+	margin: 10px;
+}
+.done
+{
+	background-color: #CFD8DC;
+	height: 250px;
+	overflow: auto;
+	color: #FFFFFF;
+	padding: 10px;
+	border-radius: 5px;
+	border-width: 0px;
+	margin: 10px;
 }
