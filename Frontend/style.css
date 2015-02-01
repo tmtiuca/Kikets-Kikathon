@@ -15,3 +15,11 @@
   	top: 0;
   	width: 100%;
 }
+
+.ng-hide 
+{
+	display: block!important;
+	position: absolute;
+	top: -9999px;
+	left: -9999px;
+}
